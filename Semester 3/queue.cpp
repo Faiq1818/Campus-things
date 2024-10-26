@@ -16,14 +16,7 @@ typedef struct {
 #define InfoTail(Q) (Q).T[(Q).TAIL]
 
 bool isEmpty(Queue Q){
-    return (Head(Q) == MaxEl);
-}
-bool isFull(Queue Q){
-    return(NbElmt(Q) == MaxEl);
-}
-void CreateEmpty(Queue *Q){
-    Head(*Q) = Nil;
-    Tail(*Q) = Nil;
+    return ((Head(Q) == Nil) && (Tail(Q) == Nil));
 }
 int NbElmt(Queue Q){
     if(isEmpty(Q)){
@@ -36,15 +29,27 @@ int NbElmt(Queue Q){
         }
     }
 }
+bool isFull(Queue Q){
+    return(NbElmt(Q) == MaxEl);
+}
+void CreateEmpty(Queue *Q){
+    Head(*Q) = Nil;
+    Tail(*Q) = Nil;
+}
 void Add(Queue *Q, infotype x){
     if(!isFull(*Q)){
-        Head(*Q) = 1;
-        Tail(*Q) = 1;
+        if(isEmpty(*Q)){
+            Head(*Q) = 1;
+            Tail(*Q) = 1;
+        } else {
+            if (Tail(*Q) == MaxEl) Tail(*Q)=1;
+            else Tail(*Q)++;
+        }
+        InfoTail(*Q) = x;
     } else {
-        if (Tail(*Q) == MaxEl) Tail(*Q) = 1;
-        else Tail(*Q)++;
+        cout << "Queue Penuh" << endl;
     }
-}
+} 
 void Del(Queue *Q, infotype *hapus){
     *hapus = InfoHead(*Q);
     if(Tail(*Q) == Head (*Q)){
@@ -58,10 +63,23 @@ void Del(Queue *Q, infotype *hapus){
     }
 }
 
+
 int main(){
     Queue DataAntrian;
     int i;
     infotype hapus;
-
     CreateEmpty(&DataAntrian);
+    Add(&DataAntrian, 1);
+    Add(&DataAntrian, 2);
+    Add(&DataAntrian, 3);
+    Add(&DataAntrian, 4);
+    Add(&DataAntrian, 5);
+    Add(&DataAntrian, 6);
+    Del(&DataAntrian, &hapus);
+    Del(&DataAntrian, &hapus);
+
+    while (Head(DataAntrian) != Nil) {
+        cout << InfoHead(DataAntrian) << endl;
+        Del(&DataAntrian, &hapus);
+    }
 }
