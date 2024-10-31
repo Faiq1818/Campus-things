@@ -74,7 +74,6 @@ int main(){
     Add(&DataAntrian, 3);
     Add(&DataAntrian, 4);
     Add(&DataAntrian, 5);
-    Add(&DataAntrian, 6);
     Del(&DataAntrian, &hapus);
     Del(&DataAntrian, &hapus);
 
