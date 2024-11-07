@@ -1,3 +1,8 @@
+/*
+Nama : Faiq Ghozy Erlangga
+NIM : 123140139
+Kelas : Praktikum ASD RC
+*/
 #include <iostream>
 using namespace std;
 
@@ -62,6 +67,16 @@ void Del(Queue *Q, infotype *hapus){
         else Head(*Q)++;
     }
 }
+void enqueue(Queue *Q, infotype x, infotype *hapus){
+    if(x >= 50 && x < 70){
+        Add(Q, x);
+    } else if (x < 50) {
+        Del(Q, hapus);
+    } else {
+        x = x + 139;
+        Add(Q, x);
+    }
+}
 
 
 int main(){
@@ -69,13 +84,17 @@ int main(){
     int i;
     infotype hapus;
     CreateEmpty(&DataAntrian);
-    Add(&DataAntrian, 1);
-    Add(&DataAntrian, 2);
-    Add(&DataAntrian, 3);
-    Add(&DataAntrian, 4);
-    Add(&DataAntrian, 5);
-    Del(&DataAntrian, &hapus);
-    Del(&DataAntrian, &hapus);
+
+    enqueue(&DataAntrian, 90, &hapus);
+    enqueue(&DataAntrian, 40, &hapus);
+    enqueue(&DataAntrian, 45, &hapus);
+    enqueue(&DataAntrian, 75, &hapus);
+    enqueue(&DataAntrian, 70, &hapus);
+    enqueue(&DataAntrian, 60, &hapus);
+    enqueue(&DataAntrian, 50, &hapus);
+    enqueue(&DataAntrian, 80, &hapus);
+    enqueue(&DataAntrian, 20, &hapus);
+    enqueue(&DataAntrian, 65, &hapus);
 
     while (Head(DataAntrian) != Nil) {
         cout << InfoHead(DataAntrian) << endl;
