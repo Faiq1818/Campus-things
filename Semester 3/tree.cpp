@@ -164,8 +164,11 @@ int main(){
     AddDaunTerkiri(&pohon, 2);
     AddDaunTerkiri(&pohon, 3);
 
-    BinTree rightNode = AlokNode(4);
-    Right(pohon) = rightNode;
+    Right(pohon) = AlokNode(4);// (pohon)->right
+    cout << (pohon)->right->info << endl;
+    (pohon)->right->right = AlokNode(5);
+    (pohon)->right->left = AlokNode(99);
+
 
     cout << "PreOrder : ";
     PreOrder(pohon);
