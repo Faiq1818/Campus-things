@@ -81,9 +81,8 @@ void PreOrder(BinTree P){
     }
 }
 void InOrder(BinTree P){
-    if(IsTreeEmpty(P)){
-
-    } else {
+    if(IsTreeEmpty(P)){} 
+    else {
         InOrder(Left(P));
         cout << Akar(P);
         InOrder(Right(P));
@@ -156,19 +155,23 @@ void DelDaunTerkiri(BinTree *P, infotype *X){
         }
     }
 }
+void AddDaunTerkananX(BinTree *P, infotype X){
+    if(IsTreeEmpty(*P)){
+        *P = Tree(X, Nil, Nil);
+    } else {
+        AddDaunTerkananX(&(Right(*P)), X);
+    }
+}
 
 int main(){
     BinTree pohon;
     pohon = Tree(1, Nil, Nil);
-
     AddDaunTerkiri(&pohon, 2);
-    AddDaunTerkiri(&pohon, 3);
-
-    Right(pohon) = AlokNode(4);// (pohon)->right
-    cout << (pohon)->right->info << endl;
-    (pohon)->right->right = AlokNode(5);
-    (pohon)->right->left = AlokNode(99);
-
+    AddDaunTerkananX(&pohon, 3);
+    AddDaunTerkiri(&pohon, 4);
+    AddDaunTerkananX(&pohon, 5);
+    (pohon)->left->right = AlokNode(6);
+    (pohon)->right->left = AlokNode(7);
 
     cout << "PreOrder : ";
     PreOrder(pohon);
@@ -176,5 +179,8 @@ int main(){
     cout << "InOrder : ";
     InOrder(pohon);
     cout << endl << endl;
+    cout << "NbElmt : " << NbElmt(pohon) << endl << endl;
+    cout << "NbDaun : " << NbDaun(pohon) << endl << endl;
+    cout << "Tinggi : " << Tinggi(pohon) << endl << endl;
     return 0;
 }
