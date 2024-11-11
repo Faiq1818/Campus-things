@@ -144,6 +144,7 @@ int main(){
     Hash hashTable[MaxEl];
     CreateEmptyHash(hashTable);
 
+
     InsertValue(hashTable, 1);
     InsertValue(hashTable, 2);
 }
