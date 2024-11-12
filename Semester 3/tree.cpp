@@ -162,6 +162,14 @@ void AddDaunTerkananX(BinTree *P, infotype X){
         AddDaunTerkananX(&(Right(*P)), X);
     }
 }
+bool SearchTree(BinTree P, infotype X){
+    if(IsTreeEmpty(P)){
+        return false;
+    } else {
+        return(SearchTree(Left(P), X) || SearchTree(Right(P), X));
+    }
+}
+
 
 int main(){
     BinTree pohon;
