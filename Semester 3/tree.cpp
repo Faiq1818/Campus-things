@@ -169,6 +169,17 @@ bool SearchTree(BinTree P, infotype X){
         return(SearchTree(Left(P), X) || SearchTree(Right(P), X));
     }
 }
+bool IsSkewLeft(BinTree P){
+    if(IsTreeEmpty(P)){
+        return true;
+    } else {
+        if(IsUnerLeft(P)){
+            return IsSkewLeft(Left(P));
+        } else {
+            return false;
+        } 
+    }
+}
 
 
 int main(){
