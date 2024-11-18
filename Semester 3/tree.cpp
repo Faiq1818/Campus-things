@@ -180,6 +180,18 @@ bool IsSkewLeft(BinTree P){
         } 
     }
 }
+bool IsSkewRight(BinTree P){
+    if(IsTreeEmpty(P)){
+        return true;
+    } else {
+        if(IsUnerRight(P)){
+            return IsSkewRight(Right(P));
+        } else {
+            return false;
+        }
+    }
+}
+
 
 
 int main(){
