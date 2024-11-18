@@ -202,7 +202,19 @@ int Level(BinTree P, infotype X){
         }
     }
 }
-
+bool SearchDaun(BinTree P, infotype X){
+    if(IsTreeOneElmt(P)){
+        return (Akar(P) == X);
+    } else {
+        if (IsUnerLeft(P)){
+            return (SearchDaun(Left(P), X));
+        } else if (IsUnerRight){
+            return (SearchDaun(Right(P), X));
+        } else {
+            return (SearchDaun(Left(P), X)) || SearchDaun(Right(P), X);
+        }
+    }
+}
 
 int main(){
     BinTree pohon;
