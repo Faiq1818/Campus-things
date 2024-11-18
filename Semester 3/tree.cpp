@@ -191,7 +191,17 @@ bool IsSkewRight(BinTree P){
         }
     }
 }
-
+int Level(BinTree P, infotype X){
+    if (Akar(P) == X){
+        return 1;
+    } else {
+        if(SearchTree(Left(P), X)){
+            return (1 + Level(Left(P), X));
+        } else {
+            return (1 + Level(Right(P), X));
+        }
+    }
+}
 
 
 int main(){
