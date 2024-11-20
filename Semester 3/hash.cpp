@@ -77,6 +77,7 @@ void DeleteLast(addrNode *First){
 }
 void InsertValue(addrHash hash_table, infotype X){
     int index = X % MaxEl;
+
     addrNode *First = &(First(hash_table,index));
 
     if(IsEmptyFirst(*First)){
@@ -146,5 +147,5 @@ int main(){
 
 
     InsertValue(hashTable, 1);
-    InsertValue(hashTable, 2);
+    InsertValue(hashTable, 11);
 }
