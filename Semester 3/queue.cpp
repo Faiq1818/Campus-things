@@ -7,7 +7,7 @@ Kelas : Praktikum ASD RC
 using namespace std;
 
 #define Nil 0
-#define MaxEl 5
+#define MaxEl 10
 typedef int infotype;
 typedef int address;
 typedef struct {
@@ -81,23 +81,8 @@ void enqueue(Queue *Q, infotype x, infotype *hapus){
 
 int main(){
     Queue DataAntrian;
-    int i;
+    int i, a;
     infotype hapus;
     CreateEmpty(&DataAntrian);
 
-    enqueue(&DataAntrian, 90, &hapus);
-    enqueue(&DataAntrian, 40, &hapus);
-    enqueue(&DataAntrian, 45, &hapus);
-    enqueue(&DataAntrian, 75, &hapus);
-    enqueue(&DataAntrian, 70, &hapus);
-    enqueue(&DataAntrian, 60, &hapus);
-    enqueue(&DataAntrian, 50, &hapus);
-    enqueue(&DataAntrian, 80, &hapus);
-    enqueue(&DataAntrian, 20, &hapus);
-    enqueue(&DataAntrian, 65, &hapus);
-
-    while (Head(DataAntrian) != Nil) {
-        cout << InfoHead(DataAntrian) << endl;
-        Del(&DataAntrian, &hapus);
-    }
 }
