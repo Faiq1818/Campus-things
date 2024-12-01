@@ -1,13 +1,8 @@
-/*
-Nama : Faiq Ghozy Erlangga
-NIM : 123140139
-Kelas : Praktikum ASD RC
-*/
 #include <iostream>
 using namespace std;
 
 #define Nil 0
-#define MaxEl 10
+#define MaxEl 5
 typedef int infotype;
 typedef int address;
 typedef struct {
@@ -81,8 +76,8 @@ void enqueue(Queue *Q, infotype x, infotype *hapus){
 
 int main(){
     Queue DataAntrian;
-    int i, a;
     infotype hapus;
     CreateEmpty(&DataAntrian);
+    Add(&DataAntrian, 1);
 
 }

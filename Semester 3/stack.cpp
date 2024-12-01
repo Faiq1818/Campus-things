@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-const int MaxEl=10;
-const int Nil=-1;
+const int MaxEl=5;
+const int Nil=0;
 
 typedef int infotype;
 typedef int address;
@@ -17,15 +17,12 @@ typedef struct {
 void CreateEmpty(stack *S) {
     TOP(*S) = Nil;
 }
-
 bool IsEmpty(stack S) {
     return (TOP(S) == Nil);
 }
-
 bool IsFull(stack S) {
     return (TOP(S) == MaxEl);
 }
-
 void Push(stack *S, infotype X) {
     if (!IsFull(*S)) {
         TOP(*S)++;
@@ -35,7 +32,6 @@ void Push(stack *S, infotype X) {
     }
 
 }
-
 void Pop(stack*S,infotype *x){
     if(!IsEmpty(*S)){
         *x = InfoTop(*S);
@@ -52,10 +48,11 @@ int main(){
     infotype dataHapus;
     CreateEmpty(&DataTest);
 
-    for(int i = MaxEl; i > 0; i--){
-        cin >> n;
-        Push(&DataTest, n);
-    }
+
+    Push(&DataTest, 2);
+    Push(&DataTest, 4);
+    Pop(&DataTest, &dataHapus);
+    
      
     while(!IsEmpty(DataTest)){
         Pop(&DataTest, &dataHapus);
