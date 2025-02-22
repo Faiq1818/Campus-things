@@ -27,11 +27,9 @@ def tampilkan_mahasiswa_diatas_80(nama_mata_kuliah):
         if nilai_ratarata_bulat > 80:
             print(mahasiswa[nim]["Nama"], ":", nilai_ratarata_bulat)
 
-
-
 mahasiswa = {}
 
 tambah_data("1234567890", "John Doe", {"Algoritma": [85, 90, 88], "Struktur Data": [78, 85, 80]})
-tambah_data("0987654321", "Doe John", {"Algoritma": [85, 90, 88], "Struktur Data": [78, 85, 80]})
+tambah_data("0987654321", "Jane Doe", {"Algoritma": [70, 75, 80], "Struktur Data": [85, 90, 95]}) 
 cari_nilai_akhir("1234567890", "Algoritma")
 tampilkan_mahasiswa_diatas_80("Algoritma")
