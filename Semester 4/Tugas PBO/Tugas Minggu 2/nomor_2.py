@@ -31,7 +31,20 @@ def tampilkan_transaksi_terbesar_terkecil():
     print("- Tanggal:", min_transaksi[0], "Kategori:", min_transaksi[1], "Jumlah:", min_transaksi[2])
 
 def urutkan_transaksi():
-    
+    pemasukan = [x for x in transaksi if x[1] == "Pemasukan"]
+    pengeluaran = [x for x in transaksi if x[1] == "Pengeluaran"]
+
+    pemasukan_terurut = sorted(pemasukan, key=lambda x: x[2], reverse=True)
+    pengeluaran_terurut = sorted(pengeluaran, key=lambda x: x[2])
+    transaksi_terurut = pemasukan_terurut + pengeluaran_terurut
+
+    print("\nTransaksi Terurut:")
+    i = 1
+    for x in transaksi_terurut:
+        print(f"{i}. {x[0]}, {x[1]}, {x[2]}")
+        i += 1
+
+
 
 transaksi = []
 
@@ -40,5 +53,5 @@ tambah_transaksi("02-10-2023", "Pengeluaran", 150000)
 tambah_transaksi("03-10-2023", "Pemasukan", 500000)
 
 hitung_total()
-
 tampilkan_transaksi_terbesar_terkecil()
+urutkan_transaksi()
